@@ -10,7 +10,7 @@ import ProtectedRoutes from "./Components/Utils/ProtectedRoutes/ProtectedRoutes"
 // Components
 import Home from "./Components/Views/Home/Home";
 import Login from "./Components/Views/Login/Login";
-import Pokemon from "./Components/Views/Pokemon/Pokemon";
+import Pokemon from "./Components/Views/PokemonInfo/PokemonInfo";
 
 function App() {
   const [name, setName] = useState("");

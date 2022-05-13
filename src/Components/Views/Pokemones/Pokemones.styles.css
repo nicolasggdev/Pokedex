@@ -1,0 +1,41 @@
+.pokemon-card {
+  /* display: flex; */
+  height: 8rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+h4 {
+  width: 100%;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 700;
+  overflow: auto;
+}
+
+.pokemon-preview {
+  display: flex;
+}
+
+.pokemon-text {
+  width: 50%;
+  margin-bottom: 0;
+}
+
+.pokemon-preview img {
+  width: 50%;
+  height: 5rem;
+}
+
+.pokemon-type {
+  color: #ffffff;
+  background-color: #ffffff48;
+  margin: 0.5rem 0 0.5rem 0;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 0.2rem;
+  width: 100%;
+}

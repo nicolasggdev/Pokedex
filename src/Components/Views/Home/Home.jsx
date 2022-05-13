@@ -28,10 +28,10 @@ const Home = ({ name, setName }) => {
         <p>
           Welcome <b>{name}</b>, here you can find your favorite pokemon!
         </p>
+        {pokemones?.map((pokemon) => (
+          <Pokemones pokemon={pokemon} key={pokemon.name} />
+        ))}
       </div>
-      {pokemones?.map((pokemon) => (
-        <Pokemones pokemon={pokemon} key={pokemon.name} />
-      ))}
     </section>
   );
 };
