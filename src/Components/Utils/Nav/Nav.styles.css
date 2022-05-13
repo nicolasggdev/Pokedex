@@ -1,0 +1,29 @@
+nav {
+  height: 5rem;
+  width: 80%;
+  margin: auto;
+}
+
+.navbar-toggler {
+  border: none;
+  width: 40%;
+  height: 2rem;
+}
+
+.navbar-toggler svg {
+  width: 100%;
+  height: 100%;
+}
+
+.comeback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 2rem;
+}
+
+.comeback svg {
+  width: 100%;
+  height: 100%;
+}
