@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Import Styles
 import "./Login.styles.css";
@@ -7,19 +8,24 @@ import "./Login.styles.css";
 // Import Img
 import Ash from "../../Img/Ash.png";
 
-const Login = ({ setName }) => {
-  const [data, setData] = useState("");
+const Login = () => {
+  const [name, setName] = useState("");
 
   const navigate = useNavigate();
 
   const handdleName = (e) => {
     e.preventDefault(e);
-    setName(data);
+    localStorage.setItem("name", name);
     navigate("/home");
   };
 
   return (
-    <div className="login-container">
+    <motion.div
+      className="login-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="login">
         <h3>Hello Trainer!</h3>
 
@@ -34,7 +40,7 @@ const Login = ({ setName }) => {
             <input
               type="text"
               className="trainer"
-              onChange={(e) => setData(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
           </label>
 
@@ -49,7 +55,7 @@ const Login = ({ setName }) => {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
