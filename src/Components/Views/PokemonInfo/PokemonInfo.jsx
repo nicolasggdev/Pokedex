@@ -22,7 +22,12 @@ const Pokemon = () => {
 
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [pokemonSpecies, setPokemonSpecies] = useState({});
+  const [background, setBackground] = useState("");
   const [pokemonDetails, setPokemonDetails] = useState("stats");
+
+  const type = pokemonInfo?.types?.[0].type.name;
+
+  const stats = pokemonInfo.stats;
 
   useEffect(() => {
     axios
@@ -38,7 +43,47 @@ const Pokemon = () => {
       .catch((err) => console.log(err.data));
   }, [id]);
 
-  const type = pokemonInfo?.types?.[0].type.name;
+  useEffect(() => {
+    if (type === "fire") {
+      setBackground("#FB6C6C");
+    } else if (type === "grass") {
+      setBackground("#48D0B0");
+    } else if (type === "electric") {
+      setBackground("#FFD352");
+    } else if (type === "normal") {
+      setBackground("#B0A8B9");
+    } else if (type === "fighting") {
+      setBackground("#C34A36");
+    } else if (type === "flying") {
+      setBackground("#D9F2FD");
+    } else if (type === "poison") {
+      setBackground("#845EC2");
+    } else if (type === "ground") {
+      setBackground("#B15B00");
+    } else if (type === "rock") {
+      setBackground("#D5CABD");
+    } else if (type === "bug") {
+      setBackground("#008000");
+    } else if (type === "ghost") {
+      setBackground("#4B4453");
+    } else if (type === "steel") {
+      setBackground("#00C9A7");
+    } else if (type === "water") {
+      setBackground("#91CAFD");
+    } else if (type === "psychic") {
+      setBackground("#FF6F91");
+    } else if (type === "ice") {
+      setBackground("#C4FCEF");
+    } else if (type === "dragon") {
+      setBackground("#4D8076");
+    } else if (type === "dark") {
+      setBackground("#252527");
+    } else if (type === "fairy") {
+      setBackground("#252527");
+    } else {
+      setBackground("#ffffff");
+    }
+  }, [type]);
 
   return (
     <motion.section
@@ -46,46 +91,7 @@ const Pokemon = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      style={{
-        background:
-          type === "fire"
-            ? "#FB6C6C"
-            : type === "grass"
-            ? "#48D0B0"
-            : type === "electric"
-            ? "#FFD352"
-            : type === "normal"
-            ? "#B0A8B9"
-            : type === "fighting"
-            ? "#C34A36"
-            : type === "flying"
-            ? "#D9F2FD"
-            : type === "poison"
-            ? "#845EC2"
-            : type === "ground"
-            ? "#B15B00"
-            : type === "rock"
-            ? "#D5CABD"
-            : type === "bug"
-            ? "#008000"
-            : type === "ghost"
-            ? "#4B4453"
-            : type === "steel"
-            ? "#00C9A7"
-            : type === "water"
-            ? "#91CAFD"
-            : type === "psychic"
-            ? "#FF6F91"
-            : type === "ice"
-            ? "#C4FCEF"
-            : type === "dragon"
-            ? "#4D8076"
-            : type === "dark"
-            ? "#252527"
-            : type === "fairy"
-            ? "#C25E8E"
-            : "#ffffff",
-      }}
+      style={{ background }}
     >
       <Nav />
       <div className="pokemon-info">
@@ -138,7 +144,7 @@ const Pokemon = () => {
               {pokemonDetails === "about" ? (
                 <PokemonAbout />
               ) : pokemonDetails === "stats" ? (
-                <PokemonStats pokemonInfo={pokemonInfo} />
+                <PokemonStats stats={stats} background={background} />
               ) : (
                 <PokemonEvolution />
               )}

@@ -1,3 +1,30 @@
 ul {
   padding-left: 0;
 }
+
+.stats-details {
+  display: flex;
+}
+
+.stats-details-title {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.stats-details-texts {
+  display: flex;
+}
+
+.stats-details-texts span {
+  width: 20%;
+}
+
+.container-progress {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.progress {
+  width: 100%;
+}
