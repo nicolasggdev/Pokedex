@@ -26,8 +26,8 @@ const Pokemon = () => {
   const [pokemonDetails, setPokemonDetails] = useState("stats");
 
   const type = pokemonInfo?.types?.[0].type.name;
-
-  const stats = pokemonInfo.stats;
+  const evolution = pokemonSpecies?.evolution_chain;
+  const stats = pokemonInfo?.stats;
 
   useEffect(() => {
     axios
@@ -146,7 +146,7 @@ const Pokemon = () => {
               ) : pokemonDetails === "stats" ? (
                 <PokemonStats stats={stats} background={background} />
               ) : (
-                <PokemonEvolution />
+                <PokemonEvolution evolution={evolution} />
               )}
             </div>
           </div>
