@@ -1,19 +1,21 @@
 .pokemon-card {
-  /* display: flex; */
-  height: 8rem;
+  height: 9rem;
   width: 100%;
   margin-bottom: 1rem;
   border-radius: 1rem;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 h4 {
+  max-height: 2rem;
   width: 100%;
   color: #ffffff;
   font-size: 1.2rem;
   text-align: center;
   font-weight: 700;
   overflow: auto;
+  line-height: inherit;
 }
 
 .pokemon-preview {
@@ -32,10 +34,11 @@ h4 {
 
 .pokemon-type {
   color: #ffffff;
-  background-color: #ffffff48;
+  background-color: #0000002c;
   margin: 0.5rem 0 0.5rem 0;
   text-align: center;
   border-radius: 1rem;
   padding: 0.2rem;
   width: 100%;
+  font-size: 0.9rem;
 }

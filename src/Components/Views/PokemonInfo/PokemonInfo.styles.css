@@ -70,6 +70,7 @@ h2 {
 
 .container-button-details {
   display: flex;
+  justify-content: center;
 }
 
 .button-details {

@@ -31,11 +31,7 @@ const PokemonStats = ({ stats, background }) => {
   }, [stats]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ul>
         <li>
           <p className="stats-details-title">HP</p>

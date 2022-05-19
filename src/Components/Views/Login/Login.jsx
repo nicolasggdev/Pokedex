@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import swal from "sweetalert";
 
 // Import Styles
 import "./Login.styles.css";
@@ -15,6 +16,9 @@ const Login = () => {
 
   const handdleName = (e) => {
     e.preventDefault(e);
+    if (!name) {
+      swal("Enter your name to continue");
+    }
     localStorage.setItem("name", name);
     navigate("/home");
   };
@@ -24,7 +28,6 @@ const Login = () => {
       className="login-container"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
     >
       <div className="login">
         <h3>Hello Trainer!</h3>

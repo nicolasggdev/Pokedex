@@ -1,18 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Styles
 import "./Nav.styles.css";
 
-const Nav = () => {
+const Nav = ({ setItemsPerPage }) => {
+  const navigate = useNavigate();
+
   return (
     <nav className="navbar navbar-light">
       <div className="container-fluid">
-        <Link to="/" className="comeback">
+        <button className="comeback" onClick={() => navigate(-1)}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path d="M447.1 256C447.1 273.7 433.7 288 416 288H109.3l105.4 105.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448s-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H416C433.7 224 447.1 238.3 447.1 256z" />
           </svg>
-        </Link>
+        </button>
         <button
           className="navbar-toggler"
           type="button"
@@ -37,66 +39,127 @@ const Nav = () => {
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             ></button>
+            <span className="settings">
+              <b>Settings</b>
+            </span>
           </div>
           <div className="offcanvas-body">
-            {/* <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="offcanvasNavbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                <div
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  className="container-nav-text"
                 >
-                  Dropdown
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="offcanvasNavbarDropdown"
+                  <Link to="/" className="nav-text active" aria-current="page">
+                    Login
+                  </Link>
+                </div>
+                <div
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  className="container-nav-text"
                 >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
+                  <Link
+                    to="/home"
+                    className="nav-text active"
+                    aria-current="page"
+                  >
+                    Pokemones
+                  </Link>
+                </div>
               </li>
-            </ul> */}
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+              <li>
+                <div className="dropdown" aria-label="Close">
+                  <button
+                    className="btn btn-secondary dropdown-toggle pokemones-per-page"
+                    type="button"
+                    id="dropdownMenu2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Items per page
+                  </button>
+                  <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li>
+                      <div
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                        className="container-nav-text"
+                      >
+                        <button
+                          className="dropdown-item"
+                          type="button"
+                          onClick={() => setItemsPerPage(4)}
+                        >
+                          4 Pokemones
+                        </button>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                        className="container-nav-text"
+                      >
+                        <button
+                          className="dropdown-item"
+                          type="button"
+                          onClick={() => setItemsPerPage(8)}
+                        >
+                          8 Pokemones
+                        </button>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                        className="container-nav-text"
+                      >
+                        <button
+                          className="dropdown-item"
+                          type="button"
+                          onClick={() => setItemsPerPage(12)}
+                        >
+                          12 Pokemones
+                        </button>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                        className="container-nav-text"
+                      >
+                        <button
+                          className="dropdown-item"
+                          type="button"
+                          onClick={() => setItemsPerPage(16)}
+                        >
+                          16 Pokemones
+                        </button>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                        className="container-nav-text"
+                      >
+                        <button
+                          className="dropdown-item"
+                          type="button"
+                          onClick={() => setItemsPerPage(20)}
+                        >
+                          20 Pokemones
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

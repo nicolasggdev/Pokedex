@@ -43,7 +43,7 @@ const Pokemon = ({ pokemon }) => {
     } else if (type === "bug") {
       setBackground("#008000");
     } else if (type === "ghost") {
-      setBackground("#4B4453");
+      setBackground("#31336A");
     } else if (type === "steel") {
       setBackground("#00C9A7");
     } else if (type === "water") {

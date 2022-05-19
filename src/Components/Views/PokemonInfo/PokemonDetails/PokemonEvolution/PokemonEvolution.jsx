@@ -75,46 +75,49 @@ const PokemonEvolution = ({ evolution }) => {
       className="evolution-card"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
     >
-      {firstEvolutionData !== undefined && (
-        <div className="pokemon-evolution-card">
-          <img
-            className="pokemon-evolution"
-            src={
-              firstEvolutionData?.sprites?.other?.["official-artwork"]
-                ?.front_default
-            }
-            alt={firstEvolutionData?.name}
-          />
-          <p>{firstEvolutionData?.name}</p>
-        </div>
-      )}
-      {secondEvolutionData !== undefined && (
-        <div className="pokemon-evolution-card">
-          <img
-            className="pokemon-evolution"
-            src={
-              secondEvolutionData?.sprites?.other?.["official-artwork"]
-                ?.front_default
-            }
-            alt={secondEvolutionData?.name}
-          />
-          <p>{secondEvolutionData?.name}</p>
-        </div>
-      )}
-      {thirdEvolutionData !== undefined && (
-        <div className="pokemon-evolution-card">
-          <img
-            className="pokemon-evolution"
-            src={
-              thirdEvolutionData?.sprites?.other?.["official-artwork"]
-                ?.front_default
-            }
-            alt={thirdEvolutionData?.name}
-          />
-          <p>{thirdEvolutionData?.name}</p>
-        </div>
+      {firstEvolutionData === undefined &&
+      secondEvolutionData === undefined &&
+      thirdEvolutionData === undefined ? (
+        <p className="no-evolution">
+          <b>This pokemon has no evolutions</b>
+        </p>
+      ) : (
+        <>
+          <div className="pokemon-evolution-card">
+            <img
+              className="pokemon-evolution"
+              src={
+                firstEvolutionData?.sprites?.other?.["official-artwork"]
+                  ?.front_default
+              }
+              alt={firstEvolutionData?.name}
+            />
+            <p>{firstEvolutionData?.name}</p>
+          </div>
+          <div className="pokemon-evolution-card">
+            <img
+              className="pokemon-evolution"
+              src={
+                secondEvolutionData?.sprites?.other?.["official-artwork"]
+                  ?.front_default
+              }
+              alt={secondEvolutionData?.name}
+            />
+            <p>{secondEvolutionData?.name}</p>
+          </div>
+          <div className="pokemon-evolution-card">
+            <img
+              className="pokemon-evolution"
+              src={
+                thirdEvolutionData?.sprites?.other?.["official-artwork"]
+                  ?.front_default
+              }
+              alt={thirdEvolutionData?.name}
+            />
+            <p>{thirdEvolutionData?.name}</p>
+          </div>
+        </>
       )}
     </motion.div>
   );

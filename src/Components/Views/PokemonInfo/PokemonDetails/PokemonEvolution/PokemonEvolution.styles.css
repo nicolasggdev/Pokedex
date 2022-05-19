@@ -9,3 +9,11 @@
 .pokemon-evolution-card {
   text-align: center;
 }
+
+.no-evolution {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

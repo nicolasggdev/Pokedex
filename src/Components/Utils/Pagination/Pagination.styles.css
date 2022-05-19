@@ -1,0 +1,51 @@
+.pagination {
+  height: 2rem;
+}
+
+.list {
+  width: 100%;
+  height: 2.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #6c79db;
+  border-radius: 1rem;
+}
+
+.points,
+.other-pages,
+.previous-botton,
+.next-botton {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.selected {
+  padding: 0.2rem;
+  background-color: #67c98e;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 50%;
+  height: 1.6rem;
+  width: 1.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.points:hover {
+  color: #ffffff;
+}
+
+.other-pages:hover {
+  color: #ffffff;
+}
+
+.previous-botton:hover {
+  color: #ffffff;
+}
+
+.next-botton:hover {
+  color: #ffffff;
+}
