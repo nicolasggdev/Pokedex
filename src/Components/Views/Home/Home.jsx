@@ -8,10 +8,15 @@ import "./Home.styles.css";
 // Utils
 import Nav from "../../Utils/Nav/Nav";
 import Pagination from "../../Utils/Pagination/Pagination";
+import SearchBox from "../../Utils/SearchBox/SearchBox";
 
 const Home = () => {
   const [pokemones, setPokemones] = useState([]);
+
+  const [isFilter, setIsFilter] = useState(false);
+
   const [lon, setLon] = useState(0);
+
   const [itemsPerPage, setItemsPerPage] = useState(8);
 
   // Here, I found all the pokemons
@@ -44,7 +49,16 @@ const Home = () => {
           favorite pokemon!
         </p>
       </div>
-      <Pagination itemsPerPage={itemsPerPage} pokemones={pokemones} />
+      <SearchBox
+        setPokemones={setPokemones}
+        setIsFilter={setIsFilter}
+        lon={lon}
+      />
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        pokemones={pokemones}
+        isFilter={isFilter}
+      />
     </motion.section>
   );
 };

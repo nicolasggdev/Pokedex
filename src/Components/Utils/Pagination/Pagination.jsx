@@ -7,7 +7,7 @@ import Pokemones from "../../Views/Pokemones/Pokemones";
 // Styles
 import "./Pagination.styles.css";
 
-const Pagination = ({ itemsPerPage, pokemones }) => {
+const Pagination = ({ itemsPerPage, pokemones, isFilter }) => {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -25,11 +25,20 @@ const Pagination = ({ itemsPerPage, pokemones }) => {
 
   return (
     <>
-      <div className="home-container">
-        {currentItems?.map((pokemon) => (
-          <Pokemones pokemon={pokemon} key={pokemon.name} />
-        ))}
-      </div>
+      {isFilter === false ? (
+        <div className="home-container">
+          {currentItems?.map((pokemon) => (
+            <Pokemones pokemon={pokemon} key={pokemon.name} />
+          ))}
+        </div>
+      ) : (
+        <div className="home-container">
+          {currentItems?.map((pokemon) => (
+            <Pokemones pokemon={pokemon?.pokemon} key={pokemon?.pokemon?.url} />
+          ))}
+        </div>
+      )}
+
       <nav className="pagination">
         <ReactPaginate
           containerClassName="list"

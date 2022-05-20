@@ -12,14 +12,14 @@ const Pokemon = ({ pokemon }) => {
 
   const { name, id, types, sprites } = pokemonInfo;
 
-  const type = types?.[0].type.name;
+  const type = types?.[0]?.type.name;
 
   useEffect(() => {
     axios
-      .get(`${pokemon.url}`)
+      .get(`${pokemon?.url}`)
       .then((res) => setPokemonInfo(res.data))
       .catch((err) => console.log(err));
-  }, [pokemon.url]);
+  }, [pokemon?.url]);
 
   useEffect(() => {
     if (type === "fire") {
