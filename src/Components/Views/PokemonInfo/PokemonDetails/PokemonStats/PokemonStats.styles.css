@@ -2,6 +2,10 @@ ul {
   padding-left: 0;
 }
 
+.stats-card {
+  height: 20rem;
+}
+
 .stats-details {
   display: flex;
 }

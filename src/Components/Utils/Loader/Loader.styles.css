@@ -1,0 +1,13 @@
+.container-loader {
+  width: 80%;
+  height: 5rem;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-grow {
+  height: 3rem;
+  width: 3rem;
+}

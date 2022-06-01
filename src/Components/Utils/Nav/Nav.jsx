@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 // Styles
 import "./Nav.styles.css";
 
-const Nav = ({ setItemsPerPage }) => {
+const Nav = ({ setItemsPerPage, setIsTheme, isTheme }) => {
   const navigate = useNavigate();
 
   return (
@@ -52,7 +52,7 @@ const Nav = ({ setItemsPerPage }) => {
                   className="container-nav-text"
                 >
                   <Link to="/" className="nav-text active" aria-current="page">
-                    Login
+                    <b>Login</b>
                   </Link>
                 </div>
                 <div
@@ -65,8 +65,28 @@ const Nav = ({ setItemsPerPage }) => {
                     className="nav-text active"
                     aria-current="page"
                   >
-                    Pokemones
+                    <b>Pokemones</b>
                   </Link>
+                </div>
+                <div>
+                  <p className="text-center title-theme ">
+                    <b>Theme</b>
+                  </p>
+                  <div className="container-switch switch-button-theme">
+                    <span className="light-theme">Light</span>
+                    <input
+                      type="checkbox"
+                      className="switch-button switch-button__checkbox-theme"
+                      id="switch-label2"
+                      onClick={() => setIsTheme(!isTheme)}
+                    />
+
+                    <label
+                      htmlFor="switch-label2"
+                      className="switch-button__label-theme"
+                    ></label>
+                    <span className="dark-theme">Dark</span>
+                  </div>
                 </div>
               </li>
               <li>
@@ -78,7 +98,7 @@ const Nav = ({ setItemsPerPage }) => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Items per page
+                    <b>Items per page</b>
                   </button>
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <li>

@@ -11,6 +11,7 @@ import Pokeball from "../../Img/Pokeball.png";
 
 // Utils
 import Nav from "../../Utils/Nav/Nav";
+import Loader from "../../Utils/Loader/Loader";
 
 // Details
 import PokemonAbout from "./PokemonDetails/PokemonAbout/PokemonAbout";
@@ -24,6 +25,7 @@ const Pokemon = () => {
   const [pokemonSpecies, setPokemonSpecies] = useState({});
   const [background, setBackground] = useState("");
   const [pokemonDetails, setPokemonDetails] = useState("stats");
+  const [isLoading, setIsLoading] = useState(true);
 
   const type = pokemonInfo?.types?.[0].type.name;
   const evolution = pokemonSpecies?.evolution_chain;
@@ -32,7 +34,10 @@ const Pokemon = () => {
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then((res) => setPokemonInfo(res.data))
+      .then((res) => {
+        setPokemonInfo(res.data);
+        setIsLoading(false);
+      })
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -140,7 +145,9 @@ const Pokemon = () => {
               </button>
             </div>
             <div>
-              {pokemonDetails === "about" ? (
+              {isLoading ? (
+                <Loader />
+              ) : pokemonDetails === "about" ? (
                 <PokemonAbout />
               ) : pokemonDetails === "stats" ? (
                 <PokemonStats stats={stats} background={background} />

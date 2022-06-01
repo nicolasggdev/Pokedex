@@ -7,7 +7,10 @@ import Pokemones from "../../Views/Pokemones/Pokemones";
 // Styles
 import "./Pagination.styles.css";
 
-const Pagination = ({ itemsPerPage, pokemones, isFilter }) => {
+// Utils
+import Loader from "../Loader/Loader";
+
+const Pagination = ({ itemsPerPage, pokemones, isFilter, isLoading }) => {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -26,15 +29,21 @@ const Pagination = ({ itemsPerPage, pokemones, isFilter }) => {
   return (
     <>
       {isFilter === false ? (
-        <div className="home-container">
-          {currentItems?.map((pokemon) => (
-            <Pokemones pokemon={pokemon} key={pokemon.name} />
-          ))}
-        </div>
+        isLoading ? (
+          <Loader />
+        ) : (
+          <div className="home-container">
+            {currentItems?.map((pokemon, i) => (
+              <Pokemones pokemon={pokemon} key={i} />
+            ))}
+          </div>
+        )
+      ) : isLoading ? (
+        <Loader />
       ) : (
         <div className="home-container">
-          {currentItems?.map((pokemon) => (
-            <Pokemones pokemon={pokemon?.pokemon} key={pokemon?.pokemon?.url} />
+          {currentItems?.map((pokemon, i) => (
+            <Pokemones pokemon={pokemon?.pokemon} key={i} />
           ))}
         </div>
       )}

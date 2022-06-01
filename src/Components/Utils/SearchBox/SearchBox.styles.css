@@ -11,6 +11,8 @@
 
 .container-filter-by {
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .filter-by {
@@ -19,7 +21,7 @@
 }
 
 .switch-button {
-  display: inline-block;
+  display: flex;
 }
 
 .switch-button .switch-button__checkbox {
@@ -55,8 +57,20 @@
   transform: translateX(1rem);
 }
 
+.filter-heigth {
+  height: 2.5rem;
+}
+
 .filter-by-name {
+  background-color: transparent;
+  padding-left: 0.5rem;
+  color: #000000;
   width: 100%;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .dropdown-toggle {

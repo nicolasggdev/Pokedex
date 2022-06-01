@@ -15,10 +15,12 @@ const Pokemon = ({ pokemon }) => {
   const type = types?.[0]?.type.name;
 
   useEffect(() => {
-    axios
-      .get(`${pokemon?.url}`)
-      .then((res) => setPokemonInfo(res.data))
-      .catch((err) => console.log(err));
+    if (pokemon?.url) {
+      axios
+        .get(`${pokemon?.url}`)
+        .then((res) => setPokemonInfo(res.data))
+        .catch((err) => console.log(err));
+    }
   }, [pokemon?.url]);
 
   useEffect(() => {
@@ -76,13 +78,13 @@ const Pokemon = ({ pokemon }) => {
     >
       <h4>{name}</h4>
       <div className="pokemon-preview">
-        <p className="pokemon-text">
+        <div className="pokemon-text">
           {types?.map((type) => (
             <p className="pokemon-type" key={type?.slot}>
               {type?.type?.name}
             </p>
           ))}
-        </p>
+        </div>
         <img
           src={sprites?.other?.["official-artwork"]?.front_default}
           alt={name}

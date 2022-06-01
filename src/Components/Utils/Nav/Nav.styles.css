@@ -12,6 +12,8 @@ nav {
 .container-nav-text {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .pokemones-per-page {
@@ -51,4 +53,68 @@ nav {
 
 .settings {
   margin-right: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title-theme {
+  margin-bottom: 0;
+}
+
+.container-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.light-theme {
+  margin-right: 0.2rem;
+}
+
+.dark-theme {
+  margin-left: 0.2rem;
+}
+
+.switch-button-theme {
+  display: flex;
+}
+
+.switch-button-theme .switch-button__checkbox-theme {
+  display: none;
+}
+
+.switch-button-theme .switch-button__label-theme {
+  background-color: #f9d923;
+  width: 2rem;
+  height: 1rem;
+  border-radius: 3rem;
+  display: inline-block;
+  position: relative;
+}
+
+.switch-button-theme .switch-button__label-theme:before {
+  transition: 0.2s;
+  display: block;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: #fdffff;
+  content: "";
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 1px #000000;
+}
+
+.switch-button-theme
+  .switch-button__checkbox-theme:checked
+  + .switch-button__label-theme {
+  background-color: #6c79db;
+}
+
+.switch-button-theme
+  .switch-button__checkbox-theme:checked
+  + .switch-button__label-theme:before {
+  transform: translateX(1rem);
 }

@@ -19,7 +19,7 @@ const Login = () => {
     if (!name) {
       swal("Enter your name to continue");
     }
-    localStorage.setItem("name", name);
+    sessionStorage.setItem("name", name);
     navigate("/home");
   };
 

@@ -28,46 +28,52 @@ const PokemonEvolution = ({ evolution }) => {
 
   // This useEffect is for get all the pokemons evolutions
   useEffect(() => {
-    axios
-      .get(evolution?.url)
-      .then((res) => setData(res?.data?.chain))
-      .catch((err) => console.log(err));
+    if (evolution?.url) {
+      axios
+        .get(evolution?.url)
+        .then((res) => setData(res?.data?.chain))
+        .catch((err) => console.log(err));
+    }
   }, [evolution?.url]);
 
   // This useEffect is for get the url by pokemons evolutions
   useEffect(() => {
-    axios
-      .get(firstEvolution?.url)
-      .then((res) => setFirstEvolutionUrl(res?.data))
-      .catch((err) => console.log(err));
+    if (firstEvolution && secondEvolution && thirdEvolution) {
+      axios
+        .get(firstEvolution?.url)
+        .then((res) => setFirstEvolutionUrl(res?.data))
+        .catch((err) => console.log(err));
 
-    axios
-      .get(secondEvolution?.url)
-      .then((res) => setSecondEvolutionUrl(res?.data))
-      .catch((err) => console.log(err));
+      axios
+        .get(secondEvolution?.url)
+        .then((res) => setSecondEvolutionUrl(res?.data))
+        .catch((err) => console.log(err));
 
-    axios
-      .get(thirdEvolution?.url)
-      .then((res) => setThirdEvolutionUrl(res?.data))
-      .catch((err) => console.log(err));
-  }, [firstEvolution?.url, secondEvolution?.url, thirdEvolution?.url]);
+      axios
+        .get(thirdEvolution?.url)
+        .then((res) => setThirdEvolutionUrl(res?.data))
+        .catch((err) => console.log(err));
+    }
+  }, [firstEvolution, secondEvolution, thirdEvolution]);
 
   // This useEffect is to get the information of each pokemon
   useEffect(() => {
-    axios
-      .get(firstUrl)
-      .then((res) => setFirstEvolutionData(res?.data))
-      .catch((err) => console.log(err));
+    if (firstUrl && secondUrl && thirdUrl) {
+      axios
+        .get(firstUrl)
+        .then((res) => setFirstEvolutionData(res?.data))
+        .catch((err) => console.log(err));
 
-    axios
-      .get(secondUrl)
-      .then((res) => setSecondEvolutionData(res?.data))
-      .catch((err) => console.log(err));
+      axios
+        .get(secondUrl)
+        .then((res) => setSecondEvolutionData(res?.data))
+        .catch((err) => console.log(err));
 
-    axios
-      .get(thirdUrl)
-      .then((res) => setThirdEvolutionData(res?.data))
-      .catch((err) => console.log(err));
+      axios
+        .get(thirdUrl)
+        .then((res) => setThirdEvolutionData(res?.data))
+        .catch((err) => console.log(err));
+    }
   }, [firstUrl, secondUrl, thirdUrl]);
 
   return (
