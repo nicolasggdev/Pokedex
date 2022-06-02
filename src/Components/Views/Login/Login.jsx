@@ -39,9 +39,10 @@ const Login = () => {
         <p className="trainer-text">Give me your name to start</p>
 
         <form className="form-trainer">
-          <label htmlFor="text">
+          <label htmlFor="trainer-name" className="trainer-label">
             <input
               type="text"
+              id="trainer-name"
               className="trainer"
               onChange={(e) => setName(e.target.value)}
             />
