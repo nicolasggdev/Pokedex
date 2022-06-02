@@ -19,11 +19,11 @@ const Home = () => {
 
   const [itemsPerPage, setItemsPerPage] = useState(8);
 
-  const [isTheme, setIsTheme] = useState(true);
-
   const [background, setBackground] = useState("");
 
   const [color, setcolor] = useState("");
+
+  const [isTheme, setIsTheme] = useState();
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,12 +47,12 @@ const Home = () => {
   }, [lon]);
 
   useEffect(() => {
-    if (isTheme) {
-      setBackground("#ffffff");
-      setcolor("#000000");
-    } else {
+    if (sessionStorage.getItem("theme") === "Light" || isTheme) {
       setBackground("#000000");
       setcolor("#ffffff");
+    } else {
+      setBackground("#ffffff");
+      setcolor("#000000");
     }
   }, [isTheme]);
 
@@ -65,8 +65,8 @@ const Home = () => {
     >
       <Nav
         setItemsPerPage={setItemsPerPage}
-        setIsTheme={setIsTheme}
         isTheme={isTheme}
+        setIsTheme={setIsTheme}
       />
       <div className="home-container" style={{ color }}>
         <h1>Pokedex</h1>

@@ -4,8 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 // Styles
 import "./Nav.styles.css";
 
-const Nav = ({ setItemsPerPage, setIsTheme, isTheme }) => {
+const Nav = ({ setItemsPerPage, isTheme, setIsTheme }) => {
   const navigate = useNavigate();
+
+  const handleTheme = (isTheme) => {
+    setIsTheme(!isTheme);
+    if (isTheme) {
+      sessionStorage.setItem("theme", "Dark");
+    } else {
+      sessionStorage.setItem("theme", "Light");
+    }
+  };
 
   return (
     <nav className="navbar navbar-light">
@@ -78,7 +87,7 @@ const Nav = ({ setItemsPerPage, setIsTheme, isTheme }) => {
                       type="checkbox"
                       className="switch-button switch-button__checkbox-theme"
                       id="switch-label2"
-                      onClick={() => setIsTheme(!isTheme)}
+                      onClick={() => handleTheme(isTheme)}
                     />
 
                     <label
